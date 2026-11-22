@@ -1,0 +1,62 @@
+/* Tankō pages: the app's look. Paper white by day, matte black at night, the yellow obi band for emphasis. */
+:root {
+  --bg: #F4F3F0;
+  --surface: #FFFFFF;
+  --stroke: #E2E0DA;
+  --text: #111111;
+  --text-2: #55534E;
+  --text-3: #8A8780;
+  --obi: #F6D200;
+  --on-obi: #111111;
+  --link: #6B5A00;
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #111111;
+    --surface: #1C1C1C;
+    --stroke: #2C2C2C;
+    --text: #F4F3F0;
+    --text-2: #B3B0A8;
+    --text-3: #77746D;
+    --link: #F6D200;
+  }
+}
+* { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; }
+body {
+  margin: 0;
+  min-height: 100vh;
+  background: var(--bg);
+  color: var(--text);
+  font: 400 17px/1.6 -apple-system, BlinkMacSystemFont, "SF Pro Text", "Segoe UI", Roboto, sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+main { max-width: 680px; margin: 0 auto; padding: 56px 20px 72px; }
+
+header { display: flex; align-items: center; gap: 14px; margin-bottom: 40px; }
+header .icon { width: 52px; height: 52px; border-radius: 12px; box-shadow: 0 0 0 1px var(--stroke), 0 8px 24px rgba(0,0,0,.12); }
+.brand { font-weight: 700; font-size: 20px; letter-spacing: -.01em; }
+
+h1 { font-weight: 800; font-size: clamp(34px, 7vw, 46px); line-height: 1.08; letter-spacing: -.025em; margin: 0 0 16px; }
+/* The obi: a yellow band under the title, as on the app's covers. */
+h1::after { content: ""; display: block; width: 72px; height: 8px; margin-top: 16px; background: var(--obi); border-radius: 2px; }
+h1 + p { font-size: 18px; color: var(--text-2); margin: 0 0 8px; }
+
+h2 { font-weight: 700; font-size: 21px; letter-spacing: -.01em; margin: 44px 0 12px; }
+p, li { color: var(--text-2); }
+p { margin: 0 0 14px; }
+strong { color: var(--text); font-weight: 600; }
+a { color: var(--link); text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: 3px; }
+
+.faq { display: grid; gap: 10px; }
+.faq p, li { margin: 0; padding: 16px 20px; background: var(--surface); border: 1px solid var(--stroke); border-radius: 14px; }
+.faq p strong { display: block; margin-bottom: 4px; }
+ul { list-style: none; padding: 0; margin: 0 0 14px; display: grid; gap: 10px; }
+
+.card { margin: 28px 0; padding: 20px 22px; border-radius: 14px; background: var(--obi); color: var(--on-obi); }
+.card strong, .card a { color: var(--on-obi); }
+
+footer { margin-top: 56px; padding-top: 20px; border-top: 1px solid var(--stroke); font-size: 14px; color: var(--text-3); }
+footer a { color: var(--text-2); }
+
+@media (max-width: 480px) { main { padding-top: 36px; } header { margin-bottom: 28px; } }
